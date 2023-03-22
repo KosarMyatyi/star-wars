@@ -1,15 +1,19 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 2px 0;
-  }
-  
-  .headerNav {
-    padding: 33px 0;
-  }
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+}
 
-  .nav {
-    color: #F6F7F9;
-    text-decoration: none;
-    margin-right: 74px;
-  }
+.headerNav {
+  padding: 20px 0;
+}
+
+.nav {
+  color: #F6F7F9;
+  text-decoration: none;
+  margin-right: 74px;
+}
+
+li {
+  list-style-type: none;
+}
