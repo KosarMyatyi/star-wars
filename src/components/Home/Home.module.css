@@ -1,33 +1,48 @@
 .greeting {
-    color: #FFFFFF;
-    padding-bottom: 246px;
+  color: #FFFFFF;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.greetingH1 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 72px;
+}
+
+.greetingH2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  margin-bottom: 64px;
+}
+
+.greetingBtn {
+  color: rgba(33, 33, 33, 1);
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 27px;
+  background: #FFC107;
+  padding: 17px 58px 22px 57px;
+  box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
+  border-radius: 11px;
+}
+
+.BannerYoda {
+  width: 100%;
+  margin-top: 100px;
+}
+
+@media (max-width: 1200px) {
+  .logo {
+    padding-left: 20px;
   }
-  
-  .greetingH1 {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 72px;
+
+  .leftPart {
+    padding-left: 20px;
   }
-  
-  .greetingH2 {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;
-    margin-bottom: 64px;
-  }
-  
-  .greetingBtn {
-    color: rgba(33, 33, 33, 1);
-    font-weight: 600;
-    font-size: 23px;
-    line-height: 27px;
-    background: #FFC107;
-    padding: 17px 58px 22px 57px;
-    box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
-    border-radius: 11px;
-  }
-  
-  .BannerYoda {
-    position: absolute;
-    padding-left: 600px;
-  }
+}

@@ -4,8 +4,8 @@ import logo from '../../assets/img/logo.svg'
 export const Header = () => {
     return (
         <div className={Styles.header}>
-            <img src={logo} alt='logo' />
-            <div>
+            <div className={Styles.content}>
+                <img src={logo} alt='logo' className={Styles.logo} />
                 <nav className={Styles.headerNav} >
                     <ul>
                         <li>

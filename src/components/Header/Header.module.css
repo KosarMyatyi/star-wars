@@ -1,12 +1,24 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  padding: 2px 0;
-  border-bottom: 1px solid gray;
+  width: 100%;
+  border-bottom: 1px solid rgba(163, 163, 163, 0.14);
 }
 
+.content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+  
 .headerNav {
-  padding: 20px 0;
+  display: flex;
+  align-items: center;
 }
 
 .nav {
@@ -17,4 +29,10 @@
 
 li {
   list-style-type: none;
+}
+
+@media (max-width: 1200px) {
+  .logo {
+    padding-left: 20px;
+  }
 }
