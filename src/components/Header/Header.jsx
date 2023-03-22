@@ -9,7 +9,7 @@ export const Header = () => {
                 <nav className={Styles.headerNav} >
                     <ul>
                         <li>
-                            <a className={Styles.nav} href='/home'>Home</a>
+                            <a className={Styles.nav} href='/'>Home</a>
                             <a className={Styles.nav} href='/characters'>Characters</a>
                         </li>
                     </ul>

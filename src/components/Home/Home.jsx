@@ -3,7 +3,6 @@ import BannerYoda from '../../assets/img/BannerYoda.svg'
 import { useNavigate } from 'react-router-dom'
 
 export const Home = () => {
-
     const navigate = useNavigate()
 
     return (
@@ -16,7 +15,7 @@ export const Home = () => {
                 <h2 className={Styles.greetingH2}>You can find out all the <br /> information about your favorite <br /> characters</h2>
             </div>
             <div>
-                <button onClick={() => navigate(`./characters}`)} className={Styles.greetingBtn}>See more...</button>
+                <button onClick={() => navigate('/characters')} className={Styles.greetingBtn}>See more...</button>
             </div>
         </div>
     )
