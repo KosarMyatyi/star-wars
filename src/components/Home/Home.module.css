@@ -32,6 +32,13 @@
   border-radius: 11px;
 }
 
+.greetingBtn:hover {
+  color: #ffffff;
+  background-color: #020673;
+  border: 2px solid #0169b4;
+  transition: .3s;
+}
+
 .BannerYoda {
   width: 100%;
   margin-top: 100px;

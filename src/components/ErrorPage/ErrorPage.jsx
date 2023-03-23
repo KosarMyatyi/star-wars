@@ -1,11 +1,15 @@
 import Styles from './ErrorPage.module.css'
 import Error from '../../assets/img/Error.svg'
 import TheDeathStar from '../../assets/img/TheDeathStar.svg'
-import { useRouteError } from "react-router-dom";
+import { useNavigate, useRouteError } from "react-router-dom";
+import { Home } from '@mui/icons-material';
 
 export function ErrorPage() {
+
     const error = useRouteError();
     console.error(error);
+
+    const navigate = useNavigate()
 
     return (
         <div className={Styles.errorPage}>
@@ -16,7 +20,7 @@ export function ErrorPage() {
                 <img src={TheDeathStar} alt='TheDeathStar' />
             </div>
             <div>
-                <button className={Styles.button}>Return</button>
+                <button onClick={() => navigate('/')} className={Styles.button}>Return</button>
             </div>
         </div>
     );
