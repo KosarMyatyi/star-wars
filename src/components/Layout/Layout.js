@@ -4,7 +4,7 @@ import Header from "../Header/Header.jsx";
 const Layout = () => {
     return (
         <>
-            {window.location.pathname !== "/*" ? (<Header />) : null}
+            <Header />
             <Outlet />
         </>
     );

@@ -1,12 +1,9 @@
 import Styles from './ErrorPage.module.css'
 import Error from '../../assets/img/Error.svg'
 import TheDeathStar from '../../assets/img/TheDeathStar.svg'
-import { useNavigate, useRouteError } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function ErrorPage() {
-
-    const error = useRouteError();
-    console.error(error);
 
     const navigate = useNavigate()
 

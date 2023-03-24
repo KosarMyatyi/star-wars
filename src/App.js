@@ -2,31 +2,23 @@ import './App.css';
 import { Home } from './components/Home/Home.jsx';
 import { Characters } from './components/Characters/Characters';
 import { ErrorPage } from './components/ErrorPage/ErrorPage';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />,  
-  },
-  {
-    path: '/characters',
-    element: <Characters />,
-  },
-  {
-    path: '*',
-    element: <ErrorPage />
-  },
-])
-
-function App() {
+const App = () => {
   return (
-    <div className="appContainer">
-      <Layout />
-      <RouterProvider router={router} />
-    </div>
-  );
+    <BrowserRouter>
+      <div className='appContainer'>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path='/' element={<Home />} />
+            <Route path='/characters' element={<Characters />} />
+          </Route>
+          <Route path='*' element={<ErrorPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  )
 }
 
 export default App;
