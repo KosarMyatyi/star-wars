@@ -4,11 +4,18 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    background-color: rgba(23, 0, 47, 1);
+    padding-top: 150px;
 }
 
-/* .DeadthStar {
+.error {
+    margin-bottom: 120px;
+}
+
+.DeadthStar {
     position: absolute;
-} */
+    top: 50px;
+}
 
 .button {
     font-weight: 600;

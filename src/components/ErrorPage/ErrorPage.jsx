@@ -2,7 +2,6 @@ import Styles from './ErrorPage.module.css'
 import Error from '../../assets/img/Error.svg'
 import TheDeathStar from '../../assets/img/TheDeathStar.svg'
 import { useNavigate, useRouteError } from "react-router-dom";
-import { Home } from '@mui/icons-material';
 
 export function ErrorPage() {
 
@@ -13,7 +12,7 @@ export function ErrorPage() {
 
     return (
         <div className={Styles.errorPage}>
-            <div>
+            <div className={Styles.error}>
                 <img src={Error} alt='Error' />
             </div>
             <div className={Styles.DeadthStar} >

@@ -1,7 +1,7 @@
 import Styles from './Header.module.css'
 import logo from '../../assets/img/logo.svg'
 
-export const Header = () => {
+const Header = () => {
     return (
         <div className={Styles.header}>
             <div className={Styles.content}>
@@ -18,3 +18,5 @@ export const Header = () => {
         </div>
     )
 }
+
+export default Header;
