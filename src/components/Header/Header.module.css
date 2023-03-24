@@ -21,10 +21,18 @@
   align-items: center;
 }
 
+.headerNav a:hover{
+  border-bottom: 2px solid #ffffff;
+}
+
 .nav {
   color: #F6F7F9;
   text-decoration: none;
   margin-right: 74px;
+}
+
+li {
+  list-style-type: none;
 }
 
 @media (max-width: 1200px) {
