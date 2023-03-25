@@ -1,8 +1,9 @@
 import Styles from './Characters.module.css'
 import axios from "axios"
 import { useEffect, useState } from "react"
-import Cards from '../Card/Cards';
-import ColorEyeSelect from '../ColorEyeSelect/ColorEyeSelect';
+import ColorEyeSelect from '../ColorEyeSelect/ColorEyeSelect.jsx';
+import { Language } from '../Language/Language.jsx';
+import { Card } from '../Card/Card';
 
 export const Characters = () => {
     const [peoples, setPeoples] = useState([]);
@@ -18,15 +19,17 @@ export const Characters = () => {
 
     return (
         <div className={Styles.container}>
-            <div>
-                <h1> {all} Peoples for you to choose your favorite</h1>
+            <div className={Styles.language}>
+                <Language />
             </div>
             <div>
+                <h1 className={Styles.peoples}> {all} Peoples for you to choose your favorite</h1>
+            </div>
+            <div className={Styles.colorEyeSelect}>
                 <ColorEyeSelect />
             </div>
             <div className={Styles.containerCard}>
-            {peoples.map(people => <Cards person={people} />)}
-                {/* {peoples.map(people => <Card person={people} />)} */}
+                {peoples.map(people => <Card person={people} />)}
             </div>
         </div>
     )

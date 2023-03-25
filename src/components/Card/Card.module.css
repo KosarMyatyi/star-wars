@@ -1,0 +1,92 @@
+.card {
+    background: #F0F0F0;
+    filter: drop-shadow(4px 4px 4px rgba(33, 33, 33, 0.174));
+    border-radius: 8px;
+    padding: 5px 0px 10px 25px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 320px;
+}
+
+.cards {
+    text-decoration: none;
+
+}
+
+.cardName {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: #212121;
+    margin-bottom: 20px;
+
+}
+
+.cardBoxContainer {
+    display: flex;
+    flex-direction: row;
+    font-style: bold;
+    font-weight: 400;
+    font-size: 15px;
+    color: #212121;
+    margin-bottom: 10px;
+}
+
+.cardHeight {
+    margin-right: 12px;
+    width: 35px;
+    height: 35px;
+    border: 3px solid #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.cardMass {
+    width: 35px;
+    height: 35px;
+    border: 3px solid #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.cardDescHeight {
+    margin-right: 12px;
+    color: #4B4B4B;
+}
+
+.cardGender {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 20px;
+    margin-right: 12px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    background: #73D677;
+    box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
+    border-radius: 11px;
+}
+
+.cardBirthYear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 20px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    background: #07D6F2;
+    box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
+    border-radius: 11px;
+}

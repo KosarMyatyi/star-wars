@@ -9,23 +9,27 @@
   width: 100%;
   max-width: 1200px;
   margin: auto;
+  
 }
 
 .logo {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-  
+
 .headerNav {
   display: flex;
   align-items: center;
 }
 
-.headerNav a:hover{
+.headerNav a:hover {
   border-bottom: 2px solid #ffffff;
 }
 
 .nav {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
   color: #F6F7F9;
   text-decoration: none;
   margin-right: 74px;
