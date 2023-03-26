@@ -1,11 +1,11 @@
-import Styles from './Characters.module.css'
+import Styles from './CharactersPage.module.css'
 import axios from "axios"
 import { useEffect, useState } from "react"
-import ColorEyeSelect from '../ColorEyeSelect/ColorEyeSelect.jsx';
-import { Language } from '../Language/Language.jsx';
-import { Card } from '../Card/Card';
+import ColorEyeSelect from '../../components/ColorEyeSelect/ColorEyeSelect.jsx';
+import { Language } from '../../components/Language/Language.jsx';
+import { Card } from '../../components/Card/Card';
 
-export const Characters = () => {
+export const CharactersPage = () => {
     const [peoples, setPeoples] = useState([]);
     const [all, setAll] = useState(0);
 
@@ -22,14 +22,12 @@ export const Characters = () => {
             <div className={Styles.language}>
                 <Language />
             </div>
-            <div>
-                <h1 className={Styles.peoples}> {all} Peoples for you to choose your favorite</h1>
-            </div>
+            <h1 className={Styles.peoples}> {all} Peoples for you to choose your favorite</h1>
             <div className={Styles.colorEyeSelect}>
                 <ColorEyeSelect />
             </div>
             <div className={Styles.containerCard}>
-                {peoples.map(people => <Card person={people} />)}
+                {peoples.map((people, index) => <Card key={index} person={people} />)}
             </div>
         </div>
     )

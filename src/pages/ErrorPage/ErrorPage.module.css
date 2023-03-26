@@ -27,6 +27,7 @@
     border-radius: 11px;
     padding: 17px 79px 22px 78px;
     margin-bottom: 95px;
+    text-decoration: none;
 }
 
 .button:hover {
