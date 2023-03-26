@@ -1,7 +1,6 @@
 .card {
     background: #F0F0F0;
     filter: drop-shadow(4px 4px 4px rgba(33, 33, 33, 0.174));
-    border-radius: 8px;
     padding: 5px 0px 10px 25px;
     border-radius: 10px;
     width: 100%;
