@@ -3,22 +3,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
     background-color: rgba(23, 0, 47, 1);
-    padding-top: 150px;
+    padding: 150px 20px;
 }
 
 .error {
-    margin-bottom: 120px;
+    margin-bottom: 150px;
     max-width: 100%
 }
 
 .DeadthStar {
     position: absolute;
-    top: 50px;
+    top: 20px;
+    padding: 50px 250px;
 }
 
 .button {
+    color: rgba(33, 33, 33, 1);
     font-weight: 600;
     font-size: 23px;
     line-height: 27px;
@@ -26,7 +27,6 @@
     box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
     border-radius: 11px;
     padding: 17px 79px 22px 78px;
-    margin-bottom: 95px;
     text-decoration: none;
 }
 
@@ -39,12 +39,20 @@
 
 @media (max-width: 1280px) {
     .error img {
-        max-width: 100%;
+        width: 100%;
+    }
+
+    .DeadthStar img {
+        width: 100%;
+    }
+
+    .error {
+        margin-bottom: 250px;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 990px) {
     .DeadthStar img {
-        max-width: 100%;
+        padding-right: 250px;
     }
 }

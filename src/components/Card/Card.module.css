@@ -1,10 +1,10 @@
 .card {
     background: #F0F0F0;
     filter: drop-shadow(4px 4px 4px rgba(33, 33, 33, 0.174));
-    padding: 5px 0px 10px 25px;
     border-radius: 10px;
-    width: 100%;
-    max-width: 320px;
+    /* width: 100%; */
+    max-width: 350px;
+    padding: 5px 0px 10px 25px;
 }
 
 .cardName {
@@ -13,7 +13,6 @@
     font-size: 18px;
     color: #212121;
     margin-bottom: 20px;
-
 }
 
 .cardBoxContainer {

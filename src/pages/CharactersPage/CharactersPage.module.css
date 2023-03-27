@@ -2,16 +2,19 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  width: 100%;
-  margin: 0 auto;
   background: linear-gradient(180deg, #FFFFFF 30.32%, #F5F5F5 100%);
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .language {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  margin: 28px 70px 0px;
+  padding-top: 30px;
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
 }
 
 .peoples {
@@ -33,15 +36,23 @@
 .containerCard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  grid-gap: 45px;
   width: 100%;
   max-width: 1200px;
   margin: auto;
+  margin-bottom: 60px;
+}
+
+.changeButton {
+  width: 100%;
+  transform: rotate(-180deg);
+  margin-bottom: 60px;
+  padding-right: -50px;
 }
 
 @media (max-width: 768px) {
-  .language {
-    margin-right: 20px;
+  .peoples {
+    text-align: center;
   }
   .containerCard {
     grid-template-columns: repeat(2, 1fr);

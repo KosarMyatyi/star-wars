@@ -9,7 +9,6 @@
   width: 100%;
   max-width: 1200px;
   margin: auto;
-  
 }
 
 .logo {
@@ -32,15 +31,29 @@
   font-size: 20px;
   color: #F6F7F9;
   text-decoration: none;
-  margin-right: 74px;
+  margin-left: 10px;
+  margin-right: 64px;
+}
+
+.nav:last-child {
+  margin-right: 0px;
 }
 
 li {
   list-style-type: none;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1240px) {
+  .nav {
+    padding-right: 20px;
+  }
   .logo {
     padding-left: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav:first-child {
+    margin-right: 0px;
   }
 }

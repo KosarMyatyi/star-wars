@@ -1,6 +1,8 @@
 import Styles from './Card.module.css'
 
 export const Card = ({ person }) => {
+
+
   return (
     <div className={Styles.card}>
         <div className={Styles.cardName}>
