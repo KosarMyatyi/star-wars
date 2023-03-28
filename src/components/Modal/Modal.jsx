@@ -3,14 +3,14 @@ import Styles from './Modal.module.css'
 import hermaphrodite from '../../assets/img/hermaphrodite-icon.svg'
 import closeIcon from '../../assets/img/closeIcon.svg'
 
-const Modal = ({ active, setActive, children }) => {
+const Modal = ({ active, setActive, children, people }) => {
     return (
         <div className={active ? Styles.modalActive : Styles.modalDisActive} onClick={() => setActive(false)}>
             <div className={active ? Styles.modalContentActive : Styles.modalContentDisActive} onClick={e => e.stopPropagation()}>
                 {children}
                 <div className={Styles.modalCardContainer}>
                     <div className={Styles.leftPart}>
-                        <img className={Styles.modalCardImg} src={hermaphrodite} alt='hermaphrodite'></img>
+                        <img className={Styles.modalCardImg} src={people.gender === 'male' ? hermaphrodite : closeIcon } alt='hermaphrodite'></img> 
                         <div className={Styles.modalCardBoxContainerLeft}>
                             <div className={Styles.modalCardGender}>
                                 hermaphrodite
@@ -21,7 +21,7 @@ const Modal = ({ active, setActive, children }) => {
                         </div>
                     </div>
                     <div className={Styles.rightPart}>
-                        <div className={Styles.modalWindowClose}>
+                        <div onClick={() => setActive(false)} className={Styles.modalWindowClose}> 
                             <img src={closeIcon} alt='closeIcon' />
                         </div>
                         <div className={Styles.modalCardName}>

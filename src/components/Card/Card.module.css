@@ -4,6 +4,7 @@
     border-radius: 10px;
     max-width: 350px;
     padding: 5px 0px 10px 25px;
+    cursor: pointer;
 }
 
 .cardName {
@@ -56,16 +57,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px;
-    height: 20px;
     margin-right: 12px;
     text-align: center;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    background: #73D677;
     box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
     border-radius: 11px;
+    padding: 1px
 }
 
 .cardBirthYear {

@@ -3,6 +3,7 @@ import logo from '../../assets/img/logo.svg'
 import { Link } from 'react-router-dom';
 
 const Header = () => {
+    
     return (
         <div className={Styles.header}>
             <div className={Styles.content}>

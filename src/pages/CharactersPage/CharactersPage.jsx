@@ -8,19 +8,23 @@ import ChangeButton from '../../assets/img/ChangeButton.svg'
 import Modal from '../../components/Modal/Modal';
 
 export const CharactersPage = () => {
-
     const [peoples, setPeoples] = useState([]);
     const [all, setAll] = useState(0);
+    const [modalActive, setModalActive] = useState(false)
+    const [people, setPeople] = useState({})
+
+    const cardClick = (person) => {
+        setPeople(person) 
+        setModalActive(true)
+    }
 
     useEffect(() => {
-        axios.get(`https://swapi.dev/api/people/?page=1`)
+        axios.get(`https://swapi.dev/api/people/?page=4`)
             .then((res) => {
                 setPeoples(prevState => [...prevState, ...res.data.results]);
                 if (all === 0) setAll(res.data.count);
             })
     }, []);
-
-    const [modalActive, setModalActive] = useState(false)
 
     return (
         <div className={Styles.container}>
@@ -32,8 +36,8 @@ export const CharactersPage = () => {
                 <div className={Styles.colorEyeSelect}>
                     <ColorEyeSelect />
                 </div>
-                <div onClick={() => setModalActive(true)} className={Styles.containerCard}>
-                    {peoples.map((people, index) => <Card key={index} person={people} />)}
+                <div className={Styles.containerCard}>
+                    {peoples.map((people, index) => <Card key={index} person={people} setPerson={cardClick} />)}
                 </div>
             </div>
             <div>
@@ -41,7 +45,7 @@ export const CharactersPage = () => {
                     <img src={ChangeButton} alt='ChangeButton' />
                 </div>
             </div>
-            <Modal active={modalActive} setActive={setModalActive}></Modal>
+            <Modal active={modalActive} setActive={setModalActive} people={people}></Modal>
         </div>
     )
 }

@@ -21,7 +21,11 @@
   align-items: center;
 }
 
-.headerNav a:hover {
+.headerNav :hover {
+  border-bottom: 2px solid #ffffff;
+}
+
+.headerNav :active {
   border-bottom: 2px solid #ffffff;
 }
 
