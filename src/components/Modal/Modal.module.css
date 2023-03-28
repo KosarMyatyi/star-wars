@@ -1,7 +1,7 @@
-.modal {
+.modalActive {
     height: 100vh;
     width: 100vw;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
@@ -9,29 +9,162 @@
     align-items: center;
     justify-content: center;
     opacity: 1;
-    /* transform: scale(1); */
-    /* pointer-events: none; */
+    pointer-events: all;
     transition: 0.5s;
 }
 
-.modalActive {
-    /* transform: scale(0); */
+.modalDisActive {
     opacity: 0;
-    /* pointer-events: all; */
-}
-
-.modalContent {
-    padding: 20px;
-    border-radius: 12px;
-    background-color: white;
-    transform: scale(1);
-    transition: 0.4s all;
-    /* width: 50vw; */
-    width: 500px;
-    height: 300px;
+    pointer-events: none;
 }
 
 .modalContentActive {
+    padding: 20px;
+    border-radius: 12px;
+    transform: scale(1);
+    transition: 0.4s all;
+    width: 50vw;
+    background: linear-gradient(to right, rgba(31, 42, 99, 1) 47%, #17002F 42.19%, #1F2A63 130% 60%);
+    /* background: rgba(31, 42, 99, 1) 45%; */
+
+}
+
+.modalContentDisActive {
     transform: scale(0.5);
 }
 
+.modalCardContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.leftPart {
+    margin-top: 45px;
+    padding-right: 15px;
+}
+
+.modalCardImg {
+    width: 100%;
+}
+
+.modalCardBoxContainerLeft {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-style: bold;
+    font-weight: 400;
+    font-size: 15px;
+    color: #212121;
+}
+
+.modalCardGender {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95px;
+    height: 20px;
+    margin-right: 12px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    background: #FFC107;
+    box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
+    border-radius: 11px;
+}
+
+.modalCardBirthYear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 20px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    background: #07D6F2;
+    box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
+    border-radius: 11px;
+}
+
+.rightPart {
+    padding: 30px 10px 10px 10px;
+}
+
+.modalWindowClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -40px;
+}
+
+.modalCardName {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    color: #FDFDFD;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cardBoxAbilities {
+    background: #FDFDFD;
+    padding: 15px 60px 15px 20px;
+    border-radius: 8px;
+}
+
+.cardHeight {
+    width: 35px;
+    height: 35px;
+    border: 3px solid #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.cardMass {
+    width: 35px;
+    height: 35px;
+    border: 3px solid #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.modalCardBoxContainerRight {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 75px;
+}
+
+.cardCounterBoxHeigth {
+    background-color: white;
+    margin-right: 20px;
+    padding: 10px 25px;
+    border-radius: 8px;
+}
+
+.cardCounterBoxMass {
+    background-color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+}
+
+@media (max-width: 800px) {
+    .modalCardName {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 22px;
+    }
+    .modalCardBoxContainerRight {
+        margin-top: 25px;
+    }
+  }

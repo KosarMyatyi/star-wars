@@ -18,9 +18,9 @@ export const CharactersPage = () => {
                 setPeoples(prevState => [...prevState, ...res.data.results]);
                 if (all === 0) setAll(res.data.count);
             })
-    }, [all]);
+    }, []);
 
-    const [modalActive, setModalActive] = useState(true)
+    const [modalActive, setModalActive] = useState(false)
 
     return (
         <div className={Styles.container}>
@@ -32,8 +32,7 @@ export const CharactersPage = () => {
                 <div className={Styles.colorEyeSelect}>
                     <ColorEyeSelect />
                 </div>
-                <div className={Styles.containerCard}>
-                    <button onClick={() => setModalActive(true)}>Нажми на меня</button>
+                <div onClick={() => setModalActive(true)} className={Styles.containerCard}>
                     {peoples.map((people, index) => <Card key={index} person={people} />)}
                 </div>
             </div>
@@ -42,9 +41,7 @@ export const CharactersPage = () => {
                     <img src={ChangeButton} alt='ChangeButton' />
                 </div>
             </div>
-            <Modal active={modalActive} setActive={setModalActive}>
-                Jabba Desilijic Tiure
-            </Modal>
+            <Modal active={modalActive} setActive={setModalActive}></Modal>
         </div>
     )
 }
