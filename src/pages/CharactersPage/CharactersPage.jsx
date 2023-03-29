@@ -9,22 +9,45 @@ import Modal from '../../components/Modal/Modal';
 
 export const CharactersPage = () => {
     const [peoples, setPeoples] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1)
+    const [fetching, setFetching] = useState(true)
+    const [totalCount, setTotalCount] = useState(0)
     const [all, setAll] = useState(0);
     const [modalActive, setModalActive] = useState(false)
     const [people, setPeople] = useState({})
 
     const cardClick = (person) => {
-        setPeople(person) 
+        setPeople(person)
         setModalActive(true)
     }
 
     useEffect(() => {
-        axios.get(`https://swapi.dev/api/people/?page=4`)
+        document.addEventListener('scroll', scrollHandler)
+        return function () {
+            document.removeEventListener('scroll', scrollHandler)
+        }
+    })
+
+    const scrollHandler = (e) => {
+        if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100
+        || peoples.length < totalCount) {
+            setFetching(true)
+        }
+    }
+
+    useEffect(() => {
+        if (fetching) {
+            console.log('fetching');
+            axios.get(`https://swapi.dev/api/people/?page=${currentPage}`)
             .then((res) => {
                 setPeoples(prevState => [...prevState, ...res.data.results]);
+                setCurrentPage(prevState => prevState + 1)
+                setTotalCount(res.headers['x-total-count'])
                 if (all === 0) setAll(res.data.count);
             })
-    }, []);
+            .finally(() => setFetching(false))
+        }
+    }, [fetching]);
 
     return (
         <div className={Styles.container}>

@@ -4,11 +4,11 @@ export const Card = ({ person, setPerson }) => {
   const checkColor = () => {
     switch (person.gender) {
       case 'male':
-        return 'green';
+        return '#73D677';
       case 'female':
-        return 'red';
+        return '#C956FF';
       case 'hermaphrodite':
-        return 'yellow';
+        return '#F5DB13';
       default:
         return null;
     }
@@ -21,7 +21,7 @@ export const Card = ({ person, setPerson }) => {
       </div>
       <div className={Styles.cardBoxContainer}>
         <div className={Styles.cardHeight}>
-          {person.height === 'unknown' ? 0: person.height}
+          {person.height === 'unknown' ? 0 : person.height}
         </div>
         <div className={Styles.cardMass}>
           {person.mass === 'unknown' ? 0 : person.mass}
@@ -36,10 +36,9 @@ export const Card = ({ person, setPerson }) => {
         </div>
       </div>
       <div className={Styles.cardBoxContainer}>
-        {person.gender !== 'n/a' && <div className={Styles.cardGender} style={{background: checkColor()}}> {person.gender} </div>}
-        <div className={Styles.cardBirthYear}>
-          {person.birth_year}
-        </div>
+        {person.gender !== 'n/a' && <div className={Styles.cardGender} style={{ background: checkColor() }}> {person.gender} </div>}
+
+        {person.birth_year !== 'unknown' && <div className={Styles.cardBirthYear}> {person.birth_year} </div>}
       </div>
     </div>
   )

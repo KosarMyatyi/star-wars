@@ -21,14 +21,6 @@
   align-items: center;
 }
 
-.headerNav :hover {
-  border-bottom: 2px solid #ffffff;
-}
-
-.headerNav :active {
-  border-bottom: 2px solid #ffffff;
-}
-
 .nav {
   font-style: normal;
   font-weight: 400;
@@ -37,6 +29,7 @@
   text-decoration: none;
   margin-left: 10px;
   margin-right: 64px;
+  padding-bottom: 15px;
 }
 
 .nav:last-child {
