@@ -6,6 +6,7 @@ import { Language } from '../../components/Language/Language.jsx';
 import { Card } from '../../components/Card/Card';
 import ChangeButton from '../../assets/img/ChangeButton.svg'
 import Modal from '../../components/Modal/Modal';
+import { Preloader } from '../../components/Preloader/Preloader';
 
 export const CharactersPage = () => {
     const [peoples, setPeoples] = useState([]);
@@ -15,6 +16,7 @@ export const CharactersPage = () => {
     const [all, setAll] = useState(0);
     const [modalActive, setModalActive] = useState(false)
     const [people, setPeople] = useState({})
+    const [loading, setLoading] = useState(true)
 
     const cardClick = (person) => {
         setPeople(person)
@@ -30,45 +32,47 @@ export const CharactersPage = () => {
 
     const scrollHandler = (e) => {
         if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100
-        || peoples.length < totalCount) {
+            || peoples.length < totalCount) {
             setFetching(true)
         }
     }
 
     useEffect(() => {
         if (fetching) {
-            console.log('fetching');
             axios.get(`https://swapi.dev/api/people/?page=${currentPage}`)
-            .then((res) => {
-                setPeoples(prevState => [...prevState, ...res.data.results]);
-                setCurrentPage(prevState => prevState + 1)
-                setTotalCount(res.headers['x-total-count'])
-                if (all === 0) setAll(res.data.count);
-            })
-            .finally(() => setFetching(false))
+                .then((res) => {
+                    setPeoples(prevState => [...prevState, ...res.data.results]);
+                    setCurrentPage(prevState => prevState + 1)
+                    setTotalCount(res.headers['x-total-count'])
+                    setLoading(false)
+                    if (all === 0) setAll(res.data.count);
+                })
+                .finally(() => setFetching(false))
         }
     }, [fetching]);
 
     return (
         <div className={Styles.container}>
-            <div>
-                <div className={Styles.language}>
-                    <Language />
+            {loading ? (<Preloader />) : (<div>
+                <div>
+                    <div className={Styles.language}>
+                        <Language />
+                    </div>
+                    <h1 className={Styles.peoples}> {all} Peoples for you to choose your favorite</h1>
+                    <div className={Styles.colorEyeSelect}>
+                        <ColorEyeSelect />
+                    </div>
+                    <div className={Styles.containerCard}>
+                        {peoples.map((people, index) => <Card key={index} person={people} setPerson={cardClick} />)}
+                    </div>
                 </div>
-                <h1 className={Styles.peoples}> {all} Peoples for you to choose your favorite</h1>
-                <div className={Styles.colorEyeSelect}>
-                    <ColorEyeSelect />
+                <div>
+                    <div className={Styles.changeButton}>
+                        <img src={ChangeButton} alt='ChangeButton' />
+                    </div>
                 </div>
-                <div className={Styles.containerCard}>
-                    {peoples.map((people, index) => <Card key={index} person={people} setPerson={cardClick} />)}
-                </div>
-            </div>
-            <div>
-                <div className={Styles.changeButton}>
-                    <img src={ChangeButton} alt='ChangeButton' />
-                </div>
-            </div>
-            <Modal active={modalActive} setActive={setModalActive} people={people}></Modal>
+                <Modal active={modalActive} setActive={setModalActive} people={people}></Modal>
+            </div>)}
         </div>
     )
 }

@@ -3,8 +3,8 @@ import Styles from './ColorEyeSelect.module.css'
 export default function ColorEyeSelect() {
   return (
     <label>
-      Color eye:
-      <select name="selectedColorEye" defaultValue="All">
+      color eye
+      <select className={Styles.colorEyeSelect} name="selectedColorEye" defaultValue="All">
         <option value="All">All</option>
         <option value="brown">brown</option>
         <option value="red">red</option>

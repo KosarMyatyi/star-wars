@@ -5,11 +5,11 @@
     justify-content: center;
     background-color: rgba(23, 0, 47, 1);
     padding: 150px 20px;
+    width: 100%;
 }
 
 .error {
     margin-bottom: 150px;
-    max-width: 100%
 }
 
 .DeadthStar {
@@ -53,6 +53,6 @@
 
 @media (max-width: 990px) {
     .DeadthStar img {
-        padding-right: 250px;
+        padding-right: 200px;
     }
 }

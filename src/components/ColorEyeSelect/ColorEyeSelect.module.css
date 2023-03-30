@@ -1,0 +1,9 @@
+.colorEyeSelect {
+    background: #F2F2F2;
+    box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.1);
+    border-radius: 4px;
+    padding: 5px 40px;
+    margin-left: 20px;
+    cursor: pointer;
+    border: none;
+}
