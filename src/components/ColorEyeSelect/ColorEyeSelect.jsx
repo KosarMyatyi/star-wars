@@ -1,10 +1,10 @@
 import Styles from './ColorEyeSelect.module.css'
 
-export default function ColorEyeSelect() {
+const ColorEyeSelect = ({}) => {
   return (
     <label>
       color eye
-      <select className={Styles.colorEyeSelect} name="selectedColorEye" defaultValue="All">
+      <select className={Styles.colorEyeSelect} name="ColorEyeFilter" defaultValue="All">
         <option value="All">All</option>
         <option value="brown">brown</option>
         <option value="red">red</option>
@@ -14,3 +14,5 @@ export default function ColorEyeSelect() {
     </label>
   )
 }
+
+export default ColorEyeSelect;

@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 export function ErrorPage() {
     return (
         <div className={Styles.errorPage}>
-            <div className={Styles.error}>
+            {/* <div className={Styles.error}>
                 <img src={Error} alt='Error' />
-            </div>
+            </div> */}
             <div className={Styles.DeadthStar} >
                 <img src={TheDeathStar} alt='TheDeathStar' />
             </div>
-            <div>
+            <div className={Styles.buttonContainer}>
                 <Link to='/' className={Styles.button}>Return</Link>
             </div>
         </div>

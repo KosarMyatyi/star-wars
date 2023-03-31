@@ -19,6 +19,7 @@
 .headerNav {
   display: flex;
   align-items: center;
+  padding-right: 20px;
 }
 
 .nav {
@@ -27,7 +28,6 @@
   font-size: 20px;
   color: #F6F7F9;
   text-decoration: none;
-  margin-left: 10px;
   margin-right: 64px;
   padding-bottom: 15px;
 }
@@ -41,16 +41,14 @@ li {
 }
 
 @media (max-width: 1240px) {
-  .nav {
-    padding-right: 20px;
-  }
   .logo {
     padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
 @media (max-width: 480px) {
   .nav:first-child {
-    margin-right: 0px;
+    margin-right: 20px;
   }
 }

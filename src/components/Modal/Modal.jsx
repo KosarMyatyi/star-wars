@@ -33,6 +33,14 @@ const Modal = ({ active, setActive, children, people }) => {
         }
     }
 
+    const checkRender = (value) => {
+        if (value !== 'n/a' && value !== 'none') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     return (
         <div className={active ? Styles.modalActive : Styles.modalDisActive} onClick={() => setActive(false)}>
             <div className={active ? Styles.modalContentActive : Styles.modalContentDisActive} onClick={e => e.stopPropagation()}>
@@ -41,7 +49,7 @@ const Modal = ({ active, setActive, children, people }) => {
                     <div className={Styles.leftPart}>
                         <img className={Styles.modalCardImg} src={checkGender()} alt='gender'></img>
                         <div className={Styles.modalCardBoxContainerLeft}>
-                            {people.gender !== ('n/a' || 'none') && <div className={Styles.modalCardGender} style={{ background: checkColor() }}> {people.gender} </div>}
+                            {checkRender(people.gender) && <div className={Styles.modalCardGender} style={{ background: checkColor() }}> {people.gender} </div>}
                             {people.birth_year !== 'unknown' && <div className={Styles.modalCardBirthYear}> {people.birth_year} </div>}
                         </div>
                     </div>
@@ -53,8 +61,8 @@ const Modal = ({ active, setActive, children, people }) => {
                             {people.name}
                         </div>
                         <div className={Styles.cardBoxAbilities}>
-                            {people.hair_color !== 'n/a' && <div className={Styles.hairColor}> Hair color: {people.hair_color} <br /></div>}
-                            {people.skin_color !== 'n/a' && <div className={Styles.hairColor}> Skin color: {people.skin_color} <br /></div>}
+                            {checkRender(people.hair_color) && <div className={Styles.hairColor}> Hair color: {people.hair_color} <br /></div>}
+                            {checkRender(people.skin_color) && <div className={Styles.hairColor}> Skin color: {people.skin_color} <br /></div>}
                         </div>
                         <div className={Styles.modalCardBoxContainerRight}>
                             <div className={Styles.cardCounterBoxHeigth}>

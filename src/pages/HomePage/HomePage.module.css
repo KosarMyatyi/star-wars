@@ -1,13 +1,15 @@
 .greeting {
   color: #FFFFFF;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   max-width: 1200px;
+  margin: auto;
+}
+
+.containerContent {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: auto;
-  padding-bottom: 100px;
 }
 
 .greetingH1 {
@@ -20,7 +22,11 @@
   font-style: normal;
   font-weight: 400;
   font-size: 32px;
-  margin-bottom: 64px;
+}
+
+.buttonContain {
+  display: flex;
+  margin-bottom: 100px;
 }
 
 .greetingBtn {
@@ -54,5 +60,30 @@
 
   .leftPart {
     padding-left: 20px;
+  }
+  
+  .buttonContain {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .containerContent {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .BannerYoda {
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 40px;
+  }
+  .greetingH2 {
+    margin-bottom: 20px;
+  }
+
+  .buttonContain {
+    display: flex;
+    justify-content: center;
   }
 }
