@@ -1,6 +1,6 @@
 import Styles from './CharactersPage.module.css'
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { ColorEyeSelect } from '../../components/ColorEyeSelect/ColorEyeSelect.jsx';
 import { Language } from '../../components/Language/Language.jsx';
 import { Card } from '../../components/Card/Card';
@@ -24,7 +24,7 @@ export const CharactersPage = () => {
         setModalActive(true)
     }
 
-    const filterHandler = () => {
+    const filterHandler = useCallback(() => {
         if (filter === 'All') {
             setPeoplesFiltered([]);
             return;
@@ -35,7 +35,7 @@ export const CharactersPage = () => {
         } else {
             setPeoplesFiltered(newArray);
         }
-    }
+    }, [filter, peoples]);
 
     const changePagination = (pageNumber) => {
         setFilter('All');
@@ -55,7 +55,7 @@ export const CharactersPage = () => {
 
     useEffect(() => {
         filterHandler();
-    }, [filter]);
+    }, [filter, filterHandler]);
 
     return (
         <div className={Styles.container}>
