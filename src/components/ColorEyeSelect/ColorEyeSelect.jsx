@@ -1,6 +1,6 @@
-import Styles from './ColorEyeSelect.module.css'
+import Styles from './ColorEyeSelect.module.css';
 
-const ColorEyeSelect = ({}) => {
+export const ColorEyeSelect = () => {
   return (
     <label>
       color eye
@@ -14,5 +14,3 @@ const ColorEyeSelect = ({}) => {
     </label>
   )
 }
-
-export default ColorEyeSelect;

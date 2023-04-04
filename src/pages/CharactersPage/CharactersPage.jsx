@@ -1,22 +1,21 @@
 import Styles from './CharactersPage.module.css'
 import axios from "axios"
 import { useEffect, useState } from "react"
-import ColorEyeSelect from '../../components/ColorEyeSelect/ColorEyeSelect.jsx';
+import { ColorEyeSelect } from '../../components/ColorEyeSelect/ColorEyeSelect.jsx';
 import { Language } from '../../components/Language/Language.jsx';
 import { Card } from '../../components/Card/Card';
 import ChangeButton from '../../assets/img/ChangeButton.svg'
 import Modal from '../../components/Modal/Modal';
 import { Preloader } from '../../components/Preloader/Preloader';
+import Pagination from '@mui/material/Pagination';
 
 export const CharactersPage = () => {
     const [peoples, setPeoples] = useState([]);
     const [currentPage, setCurrentPage] = useState(1)
-    const [fetching, setFetching] = useState(true)
-    const [totalCount, setTotalCount] = useState(0)
     const [all, setAll] = useState(0);
     const [modalActive, setModalActive] = useState(false)
     const [people, setPeople] = useState({})
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
     const cardClick = (person) => {
         setPeople(person)
@@ -24,32 +23,14 @@ export const CharactersPage = () => {
     }
 
     useEffect(() => {
-        document.addEventListener('scroll', scrollHandler)
-        return function () {
-            document.removeEventListener('scroll', scrollHandler)
-        }
-    })
-
-    const scrollHandler = (e) => {
-        if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100
-            || peoples.length < totalCount) {
-            setFetching(true)
-        }
-    }
-
-    useEffect(() => {
-        if (fetching) {
-            axios.get(`https://swapi.dev/api/people/?page=${currentPage}`)
-                .then((res) => {
-                    setPeoples(prevState => [...prevState, ...res.data.results]);
-                    setCurrentPage(prevState => prevState + 1)
-                    setTotalCount(res.headers['x-total-count'])
-                    setLoading(false)
-                    if (all === 0) setAll(res.data.count);
-                })
-                .finally(() => setFetching(false))
-        }
-    }, [fetching]);
+        setLoading(true);
+        axios.get(`https://swapi.dev/api/people/?page=${currentPage}`)
+            .then((res) => {
+                setPeoples([...res.data.results]);
+                if (all === 0) setAll(res.data.count);
+                setLoading(false);
+            });
+    }, [currentPage, all]);
 
     return (
         <div className={Styles.container}>
@@ -73,6 +54,15 @@ export const CharactersPage = () => {
                 </div>
                 <Modal active={modalActive} setActive={setModalActive} people={people}></Modal>
             </div>)}
+            {all > 0 && <div className={Styles.paginationBlock}>
+                <Pagination
+                    variant="outlined"
+                    color="secondary"
+                    count={Math.ceil(all / 10)}
+                    page={currentPage}
+                    onChange={(_, pageNumber) => setCurrentPage(pageNumber)}
+                />
+            </div>}
         </div>
     )
 }

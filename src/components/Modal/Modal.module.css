@@ -8,13 +8,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 1;
     pointer-events: all;
     transition: 0.5s;
 }
 
 .modalDisActive {
-    opacity: 0;
+    display: none;
     pointer-events: none;
 }
 
