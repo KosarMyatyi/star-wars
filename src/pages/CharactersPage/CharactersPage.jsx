@@ -11,6 +11,8 @@ import Pagination from '@mui/material/Pagination';
 
 export const CharactersPage = () => {
     const [peoples, setPeoples] = useState([]);
+    const [peoplesFiltered, setPeoplesFiltered] = useState([]);
+    const [filter, setFilter] = useState('All');
     const [currentPage, setCurrentPage] = useState(1)
     const [all, setAll] = useState(0);
     const [modalActive, setModalActive] = useState(false)
@@ -22,15 +24,38 @@ export const CharactersPage = () => {
         setModalActive(true)
     }
 
+    const filterHandler = () => {
+        if (filter === 'All') {
+            setPeoplesFiltered([]);
+            return;
+        }
+        const newArray = peoples.filter(person => person.eye_color === filter);
+        if (!newArray.length) {
+            // TO DO
+        } else {
+            setPeoplesFiltered(newArray);
+        }
+    }
+
+    const changePagination = (pageNumber) => {
+        setFilter('All');
+        setPeoplesFiltered([]);
+        setCurrentPage(pageNumber);
+    }
+
     useEffect(() => {
         setLoading(true);
         axios.get(`https://swapi.dev/api/people/?page=${currentPage}`)
             .then((res) => {
-                setPeoples([...res.data.results]);
+                setPeoples(res.data.results);
                 if (all === 0) setAll(res.data.count);
                 setLoading(false);
             });
     }, [currentPage, all]);
+
+    useEffect(() => {
+        filterHandler();
+    }, [filter]);
 
     return (
         <div className={Styles.container}>
@@ -41,10 +66,10 @@ export const CharactersPage = () => {
                     </div>
                     <h1 className={Styles.peoples}> {all} Peoples for you to choose your favorite</h1>
                     <div className={Styles.colorEyeSelect}>
-                        <ColorEyeSelect />
+                        <ColorEyeSelect filter={filter} setFilter={(color) => setFilter(color)}/>
                     </div>
                     <div className={Styles.containerCard}>
-                        {peoples.map((people, index) => <Card key={index} person={people} setPerson={cardClick} />)}
+                        {(peoplesFiltered.length ? peoplesFiltered  : peoples).map((people, index) => <Card key={index} person={people} setPerson={cardClick} />)}
                     </div>
                 </div>
                 <div>
@@ -60,7 +85,7 @@ export const CharactersPage = () => {
                     color="secondary"
                     count={Math.ceil(all / 10)}
                     page={currentPage}
-                    onChange={(_, pageNumber) => setCurrentPage(pageNumber)}
+                    onChange={(_, pageNumber) => changePagination(pageNumber)}
                 />
             </div>}
         </div>
