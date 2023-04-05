@@ -2,22 +2,23 @@ import Styles from './CharactersPage.module.css'
 import axios from "axios"
 import { useCallback, useEffect, useState } from "react"
 import { ColorEyeSelect } from '../../components/ColorEyeSelect/ColorEyeSelect.jsx';
-import { Language } from '../../components/Language/Language.jsx';
 import { Card } from '../../components/Card/Card';
 import ChangeButton from '../../assets/img/ChangeButton.svg'
 import Modal from '../../components/Modal/Modal';
 import { Preloader } from '../../components/Preloader/Preloader';
 import Pagination from '@mui/material/Pagination';
+import { useTranslation } from 'react-i18next';
 
 export const CharactersPage = () => {
     const [peoples, setPeoples] = useState([]);
     const [peoplesFiltered, setPeoplesFiltered] = useState([]);
     const [filter, setFilter] = useState('All');
-    const [currentPage, setCurrentPage] = useState(1)
+    const [currentPage, setCurrentPage] = useState(1);
     const [all, setAll] = useState(0);
-    const [modalActive, setModalActive] = useState(false)
-    const [people, setPeople] = useState({})
-    const [loading, setLoading] = useState(false)
+    const [modalActive, setModalActive] = useState(false);
+    const [people, setPeople] = useState({});
+    const [loading, setLoading] = useState(false);
+    const [t, i18n] = useTranslation();
 
     const cardClick = (person) => {
         setPeople(person)
@@ -43,6 +44,10 @@ export const CharactersPage = () => {
         setCurrentPage(pageNumber);
     }
 
+    const changeLanguage = (language) => {
+        i18n.changeLanguage(language);
+    }
+
     useEffect(() => {
         setLoading(true);
         axios.get(`https://swapi.dev/api/people/?page=${currentPage}`)
@@ -62,9 +67,11 @@ export const CharactersPage = () => {
             {loading ? (<Preloader />) : (<div>
                 <div>
                     <div className={Styles.language}>
-                        <Language />
+                        language: 
+                        <button onClick={() => changeLanguage('en')}>en</button>
+                        <button onClick={() => changeLanguage('wo')}>wo</button>
                     </div>
-                    <h1 className={Styles.peoples}> {all} Peoples for you to choose your favorite</h1>
+                    <h1 className={Styles.peoples}> {all} {t("peoples")}</h1>
                     <div className={Styles.colorEyeSelect}>
                         <ColorEyeSelect filter={filter} setFilter={(color) => setFilter(color)}/>
                     </div>
