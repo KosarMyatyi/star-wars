@@ -31,11 +31,7 @@ export const CharactersPage = () => {
             return;
         }
         const newArray = peoples.filter(person => person.eye_color === filter);
-        if (!newArray.length) {
-            // TO DO
-        } else {
-            setPeoplesFiltered(newArray);
-        }
+        setPeoplesFiltered(newArray);
     }, [filter, peoples]);
 
     const changePagination = (pageNumber) => {
@@ -76,8 +72,9 @@ export const CharactersPage = () => {
                         <ColorEyeSelect filter={filter} setFilter={(color) => setFilter(color)}/>
                     </div>
                     <div className={Styles.containerCard}>
-                        {(peoplesFiltered.length ? peoplesFiltered  : peoples).map((people, index) => <Card key={index} person={people} setPerson={cardClick} />)}
+                        {(peoplesFiltered.length ? peoplesFiltered  : (filter === 'All' ? peoples : [])).map((people, index) => <Card key={index} person={people} setPerson={cardClick} />)}
                     </div>
+                    {!peoplesFiltered.length && filter !== 'All' && <p className={Styles.notFound}>Not found :(</p>}
                 </div>
                 <div>
                     <div className={Styles.changeButton}>
