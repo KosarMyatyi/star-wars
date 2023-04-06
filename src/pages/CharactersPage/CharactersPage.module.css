@@ -7,7 +7,16 @@
   min-height: 100vh;
 }
 
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url(../../fonts/SourceSansPro-Regular.ttf);
+}
+
 .language {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -15,22 +24,37 @@
   max-width: 1200px;
   width: 100%;
   margin: auto;
+  padding-bottom: 20px;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src: url(../../fonts/Karla-VariableFont_wght.ttf);
 }
 
 .peoples {
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 35px;
+  letter-spacing: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-bottom: 20px;
 }
 
 .colorEyeSelect {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
   display: flex;
   width: 100%;
   max-width: 1200px;
   margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 
 .containerCard {
@@ -68,6 +92,7 @@
   .peoples {
     text-align: center;
   }
+
   .containerCard {
     grid-template-columns: repeat(2, 1fr);
   }
