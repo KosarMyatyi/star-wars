@@ -87,3 +87,16 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 400px) {
+  .greetingH1 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 52px;
+  }
+  .greetingH2 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+  }
+}

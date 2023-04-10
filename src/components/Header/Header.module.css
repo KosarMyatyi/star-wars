@@ -54,6 +54,15 @@ li {
 }
 
 @media (max-width: 480px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .headerNav {
+    padding-left: 20px;
+  }
   .nav:first-child {
     margin-right: 20px;
   }
